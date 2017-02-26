@@ -1,0 +1,6 @@
+framework module Pods_PRD {
+  umbrella header "Pods-PRD-umbrella.h"
+
+  export *
+  module * { export * }
+}

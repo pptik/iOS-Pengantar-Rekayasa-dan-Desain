@@ -1,0 +1,6 @@
+framework module Pods_PRDUITests {
+  umbrella header "Pods-PRDUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
