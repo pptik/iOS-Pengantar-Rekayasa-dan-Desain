@@ -5,6 +5,9 @@ target 'PRD' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 	pod 'Alamofire', '~> 4.3'
+	pod 'YYHRequest'
+	pod 'SwiftHTTP', '~> 2.0.0'
+	pod 'JSONJoy-Swift', '~> 3.0.0'
   # Pods for PRD
 
   target 'PRDTests' do

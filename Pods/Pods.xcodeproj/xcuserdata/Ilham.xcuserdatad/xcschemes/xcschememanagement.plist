@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>JSONJoy-Swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-PRD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -20,6 +25,16 @@
 			<false/>
 		</dict>
 		<key>Pods-PRDUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwiftHTTP.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>YYHRequest.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,12 +52,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>51AA9C1F314B5F4361805518F7A09AC0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5E68024960ED48AD002CF261D65E5AD8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D3EC5542EEA0AA5E68830BB6C39DBF7B</key>
+		<key>E3C461B6AC855F69D742D19840226BE6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E9E710F048A759A9EA647A7C0BDAA1F6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
