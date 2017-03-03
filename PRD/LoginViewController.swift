@@ -22,21 +22,6 @@ class LoginViewController: UIViewController {
     
     @IBAction func OnTapMasukButton(_ sender: UIButton) {//Aksi ketika menekan tombol
         
-        if(emailTextField.text?.isEmpty)! || (sandiTextField.text?.isEmpty)!{
-            OperationQueue.main.addOperation{
-                
-                //Menambahkan dialog peringatan bahwa field isian harus diisi
-                let alert = UIAlertController(title: "Peringatan", message: "email atau sandi harus diisi", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-                OperationQueue.main.addOperation{
-                    self.dismissAlert()
-                }
-            }
-            
-            
-        }else{
-        
         //Menampilkan icon loading ketika proses ini dijalankan
         activityIndicator.center = self.view.center
         activityIndicator.hidesWhenStopped = true
@@ -55,8 +40,8 @@ class LoginViewController: UIViewController {
                 let json = try? JSONSerialization.jsonObject(with: response.data, options: [])
                 
                 if let dictionary = json as? [String: Any] {
-                    if let number = dictionary["RC"] as? String {//Mengambil objek RC
-                        if(number == "00"){//RC berhasil
+                    if let rc = dictionary["RC"] as? String {//Mengambil objek RC
+                        if(rc == "00"){//RC berhasil
                             //Menghentinkan tampilan loading
                             self.activityIndicator.stopAnimating()
                             UIApplication.shared.endIgnoringInteractionEvents()                        
@@ -64,12 +49,12 @@ class LoginViewController: UIViewController {
                             OperationQueue.main.addOperation{
                                 self.performSegue(withIdentifier: "menujuTopik", sender: self)
                             }
-                        }else if(number == "01"){//RC gagal
-                            print("DITAHAN")
+                        }else if(rc == "01"){//RC gagal
+                            let message = dictionary["message"] as? String
                             
                             //Memberikan dialog bahwa email atau sandi salah
                             OperationQueue.main.addOperation{
-                            let alert = UIAlertController(title: "Peringatan", message: "email atau sandi salah", preferredStyle: UIAlertControllerStyle.alert)
+                            let alert = UIAlertController(title: "Peringatan", message: message, preferredStyle: UIAlertControllerStyle.alert)
                             alert.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.default, handler: nil))
                             self.present(alert, animated: true, completion: nil)
                             OperationQueue.main.addOperation{
@@ -90,7 +75,7 @@ class LoginViewController: UIViewController {
         } catch let error {
             print("got an error creating the request: \(error)")
         }
-        }
+        
     }
     
     func dismissAlert() {
