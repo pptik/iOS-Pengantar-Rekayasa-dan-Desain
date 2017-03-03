@@ -4,7 +4,7 @@
 //
 //  Created by Ilham on 2/26/17.
 //  Copyright © 2017 Ilham. All rights reserved.
-//
+//  Kelas ini dibuat untuk menghandle proses login dari sebuah tombol
 
 import UIKit
 import SwiftHTTP
@@ -16,40 +16,20 @@ class LoginViewController: UIViewController {
     
     var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     
+    //Deklarasi Text Field
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var sandiTextField: UITextField!
     
-    @IBAction func OnTapMasukButton(_ sender: UIButton) {
-        /*let alert = UIAlertController(title: "Title", message: "Message", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)*/
-        
-//        do {
-//            let opt = try HTTP.POST("http://localhost:8000/login", parameters: ["email": "emilhamepS@gmail.com", "password": "12345678"])
-//            opt.start { response in
-//                //do things...
-//                print("Respond data:\(response.description)")
-//                let json = try? JSONSerialization.jsonObject(with: response.data, options: [])
-//                
-//                if let dictionary = json as? [String: Any] {
-//                    if let number = dictionary["RC"] as? String {
-//                        // access individual value in dictionary
-//                        print("Nilai RC:\(number)")
-//                    }
-//                }
-//                
-//                print("Respond teks:\(response.text)")
-//            }
-//        } catch let error {
-//            print("got an error creating the request: \(error)")
-//        }
+    @IBAction func OnTapMasukButton(_ sender: UIButton) {//Aksi ketika menekan tombol
         
         if(emailTextField.text?.isEmpty)! || (sandiTextField.text?.isEmpty)!{
             OperationQueue.main.addOperation{
+                
+                //Menambahkan dialog peringatan bahwa field isian harus diisi
                 let alert = UIAlertController(title: "Peringatan", message: "email atau sandi harus diisi", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
-                DispatchQueue.main.async {
+                OperationQueue.main.addOperation{
                     self.dismissAlert()
                 }
             }
@@ -57,39 +37,50 @@ class LoginViewController: UIViewController {
             
         }else{
         
-        
+        //Menampilkan icon loading ketika proses ini dijalankan
         activityIndicator.center = self.view.center
         activityIndicator.hidesWhenStopped = true
         activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
         view.addSubview(activityIndicator)
-        
+            
         activityIndicator.startAnimating()
         UIApplication.shared.beginIgnoringInteractionEvents()
         
+        //Melakukan REST
         do {
-            let opt = try HTTP.POST("http://localhost:8000/login", parameters: ["email": emailTextField.text, "password": sandiTextField.text])
-            opt.start { response in
-                //do things...
-                print("Respond data:\(response.description)")
+            let opt = try HTTP.POST("http://localhost/prd-api/public/login", parameters: ["email": emailTextField.text, "password": sandiTextField.text])//HTTP POST untuk proses login
+            opt.start { response in //Mengolah hasil HTTP REST
+                
+                //Menguraikan kembalian berupa JSON ke dalam dictionary
                 let json = try? JSONSerialization.jsonObject(with: response.data, options: [])
                 
                 if let dictionary = json as? [String: Any] {
-                    if let number = dictionary["RC"] as? String {
-                        if(number == "00"){
+                    if let number = dictionary["RC"] as? String {//Mengambil objek RC
+                        if(number == "00"){//RC berhasil
+                            //Menghentinkan tampilan loading
                             self.activityIndicator.stopAnimating()
-                            UIApplication.shared.endIgnoringInteractionEvents()
-                            self.performSegue(withIdentifier: "menujuTopik", sender: self)
-                        }else if(number == "01"){
+                            UIApplication.shared.endIgnoringInteractionEvents()                        
+                            UserDefaults.standard.set(24, forKey: "userId")
+                            OperationQueue.main.addOperation{
+                                self.performSegue(withIdentifier: "menujuTopik", sender: self)
+                            }
+                        }else if(number == "01"){//RC gagal
                             print("DITAHAN")
-                            self.activityIndicator.stopAnimating()
-                            UIApplication.shared.endIgnoringInteractionEvents()
+                            
+                            //Memberikan dialog bahwa email atau sandi salah
                             OperationQueue.main.addOperation{
                             let alert = UIAlertController(title: "Peringatan", message: "email atau sandi salah", preferredStyle: UIAlertControllerStyle.alert)
                             alert.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.default, handler: nil))
                             self.present(alert, animated: true, completion: nil)
-                            DispatchQueue.main.async {
+                            OperationQueue.main.addOperation{
                                 self.dismissAlert()
                                 }
+                            }
+                            
+                            //Menghentinkan tampilan loading
+                            OperationQueue.main.addOperation{
+                                self.activityIndicator.stopAnimating()
+                                UIApplication.shared.endIgnoringInteractionEvents()
                             }
                         }
                     }
@@ -133,6 +124,7 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
 
     /*
