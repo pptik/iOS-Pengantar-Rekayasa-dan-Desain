@@ -20,6 +20,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var sandiTextField: UITextField!
     
+    @IBOutlet weak var MasukButton: UIButton!
     @IBAction func OnTapMasukButton(_ sender: UIButton) {//Aksi ketika menekan tombol
         
         //Menampilkan icon loading ketika proses ini dijalankan
@@ -33,7 +34,7 @@ class LoginViewController: UIViewController {
         
         //Melakukan REST
         do {
-            let opt = try HTTP.POST("http://localhost/prd-api/public/login", parameters: ["email": emailTextField.text, "password": sandiTextField.text])//HTTP POST untuk proses login
+            let opt = try HTTP.POST("http://prdapi.lskk.ee.itb.ac.id/public/login", parameters: ["email": emailTextField.text, "password": sandiTextField.text])//HTTP POST untuk proses login
             opt.start { response in //Mengolah hasil HTTP REST
                 
                 //Menguraikan kembalian berupa JSON ke dalam dictionary
@@ -101,7 +102,11 @@ class LoginViewController: UIViewController {
         //Menyembunyikan tombol kembali
         self.navigationItem.setHidesBackButton(true, animated:true)
         
-        
+        //Kustomisasi tombol
+        MasukButton.backgroundColor = UIColor(red: 247/255.0, green: 202/255.0, blue: 24/255.0, alpha: 1.0)
+        MasukButton.layer.cornerRadius = 5
+//        MasukButton.layer.borderWidth = 1
+//        MasukButton.layer.borderColor = UIColor.black.cgColor
 
     }
 

@@ -8,6 +8,7 @@ target 'PRD' do
 	pod 'YYHRequest'
 	pod 'SwiftHTTP', '~> 2.0.0'
 	pod 'JSONJoy-Swift', '~> 3.0.0'
+	pod ‘SwiftyJSON’, '~> 3.1.4’
   # Pods for PRD
 
   target 'PRDTests' do

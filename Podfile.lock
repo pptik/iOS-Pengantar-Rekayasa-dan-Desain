@@ -2,6 +2,7 @@ PODS:
   - Alamofire (4.3.0)
   - JSONJoy-Swift (3.0.1)
   - SwiftHTTP (2.0.2)
+  - SwiftyJSON (3.1.4)
   - YYHRequest (0.0.3):
     - YYHRequest/JSON (= 0.0.3)
   - YYHRequest/JSON (0.0.3)
@@ -10,14 +11,16 @@ DEPENDENCIES:
   - Alamofire (~> 4.3)
   - JSONJoy-Swift (~> 3.0.0)
   - SwiftHTTP (~> 2.0.0)
+  - SwiftyJSON (~> 3.1.4)
   - YYHRequest
 
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
   JSONJoy-Swift: ef6eccdcf319412f149bbdd031b27f0430d5d576
   SwiftHTTP: faa1a5f7670568ffc9361898229dbe84a6088468
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   YYHRequest: 0a01f6705598697e048ef002d4d22cffdedd987b
 
-PODFILE CHECKSUM: 392b0157c657f28c0a1a75382a4cabd9c5b684a3
+PODFILE CHECKSUM: 77bab87a514ec73994dcd012493a272caa90e585
 
 COCOAPODS: 1.2.0

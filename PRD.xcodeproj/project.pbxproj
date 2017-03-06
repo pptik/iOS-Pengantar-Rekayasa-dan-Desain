@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8619F7B696AA5BC2237B7900 /* Pods_PRDUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F99AE231B24E714AE0E42B67 /* Pods_PRDUITests.framework */; };
+		B54BDB2D1E6B0F06004860A0 /* stroberi.png in Resources */ = {isa = PBXBuildFile; fileRef = B54BDB2B1E6B0F06004860A0 /* stroberi.png */; };
+		B54BDB2E1E6B0F06004860A0 /* jeruk.png in Resources */ = {isa = PBXBuildFile; fileRef = B54BDB2C1E6B0F06004860A0 /* jeruk.png */; };
+		B54BDB301E6B11BB004860A0 /* TestingViewControllerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BDB2F1E6B11BB004860A0 /* TestingViewControllerTableViewCell.swift */; };
 		B5681C591E6316A6003FC838 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5681C581E6316A6003FC838 /* LoginViewController.swift */; };
 		B5681C611E632D59003FC838 /* TopicsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5681C601E632D59003FC838 /* TopicsTableViewController.swift */; };
 		B5681C651E6423D9003FC838 /* MainMenuTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5681C641E6423D9003FC838 /* MainMenuTabBarController.swift */; };
@@ -50,6 +53,9 @@
 		26E7BE19CC1BE7385A43F92C /* Pods-PRDTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PRDTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PRDTests/Pods-PRDTests.release.xcconfig"; sourceTree = "<group>"; };
 		5DF89D6903E389308103A199 /* Pods-PRD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PRD.release.xcconfig"; path = "Pods/Target Support Files/Pods-PRD/Pods-PRD.release.xcconfig"; sourceTree = "<group>"; };
 		A7D8DD4C69C877846E9C53A2 /* Pods_PRDTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PRDTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B54BDB2B1E6B0F06004860A0 /* stroberi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stroberi.png; sourceTree = "<group>"; };
+		B54BDB2C1E6B0F06004860A0 /* jeruk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jeruk.png; sourceTree = "<group>"; };
+		B54BDB2F1E6B11BB004860A0 /* TestingViewControllerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingViewControllerTableViewCell.swift; sourceTree = "<group>"; };
 		B5681C581E6316A6003FC838 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B5681C601E632D59003FC838 /* TopicsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsTableViewController.swift; sourceTree = "<group>"; };
 		B5681C641E6423D9003FC838 /* MainMenuTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuTabBarController.swift; sourceTree = "<group>"; };
@@ -149,6 +155,8 @@
 		B5C2460F1E62D5F400C3E671 /* PRD */ = {
 			isa = PBXGroup;
 			children = (
+				B54BDB2B1E6B0F06004860A0 /* stroberi.png */,
+				B54BDB2C1E6B0F06004860A0 /* jeruk.png */,
 				B5B825D41E67E362006FC99C /* RegisterPageViewController.swift */,
 				B5B825CF1E67D9AC006FC99C /* Main.storyboard */,
 				B5C246101E62D5F400C3E671 /* AppDelegate.swift */,
@@ -161,6 +169,7 @@
 				B5681C641E6423D9003FC838 /* MainMenuTabBarController.swift */,
 				B57B37211E6614C8007A3C30 /* TestingViewController.swift */,
 				B5B825D21E67DD1D006FC99C /* BimbinganViewController.swift */,
+				B54BDB2F1E6B11BB004860A0 /* TestingViewControllerTableViewCell.swift */,
 			);
 			path = PRD;
 			sourceTree = "<group>";
@@ -301,8 +310,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5B825D11E67D9AC006FC99C /* Main.storyboard in Resources */,
+				B54BDB2D1E6B0F06004860A0 /* stroberi.png in Resources */,
 				B5C2461B1E62D5F400C3E671 /* LaunchScreen.storyboard in Resources */,
 				B5C246181E62D5F400C3E671 /* Assets.xcassets in Resources */,
+				B54BDB2E1E6B0F06004860A0 /* jeruk.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +477,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5B825D51E67E362006FC99C /* RegisterPageViewController.swift in Sources */,
+				B54BDB301E6B11BB004860A0 /* TestingViewControllerTableViewCell.swift in Sources */,
 				B5681C591E6316A6003FC838 /* LoginViewController.swift in Sources */,
 				B5681C651E6423D9003FC838 /* MainMenuTabBarController.swift in Sources */,
 				B5C246131E62D5F400C3E671 /* ViewController.swift in Sources */,
